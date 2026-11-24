@@ -1,0 +1,57 @@
+name: Deploy from config.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - config.json
+      - scripts/**
+      - .github/workflows/deploy.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate README + index.html from config.json
+        run: python scripts/generate.py
+
+      - name: Deploy portfolio to Brandonminer333.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: Brandonminer333/Brandonminer333.github.io
+          publish_branch: main
+          publish_dir: ./dist/portfolio
+          force_orphan: true
+          commit_message: "Deploy portfolio from Career@${{ github.sha }}"
+
+      - name: Check out profile repo
+        uses: actions/checkout@v4
+        with:
+          repository: Brandonminer333/Brandonminer333
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          path: profile-repo
+
+      - name: Push profile README
+        working-directory: profile-repo
+        run: |
+          cp ../dist/profile/README.md README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "Profile README unchanged"
+            exit 0
+          fi
+          git commit -m "Update README from Career@${{ github.sha }}"
+          git push
