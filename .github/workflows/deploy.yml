@@ -6,6 +6,7 @@ on:
     paths:
       - config.json
       - scripts/**
+      - portfolio/**
       - .github/workflows/deploy.yml
   workflow_dispatch:
 
@@ -22,8 +23,20 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate README + index.html from config.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Generate profile README
         run: python scripts/generate.py
+
+      - name: Build Astro site
+        working-directory: portfolio
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy portfolio to Brandonminer333.github.io
         uses: peaceiris/actions-gh-pages@v4
@@ -31,7 +44,7 @@ jobs:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           external_repository: Brandonminer333/Brandonminer333.github.io
           publish_branch: main
-          publish_dir: ./dist/portfolio
+          publish_dir: ./portfolio/dist
           force_orphan: true
           commit_message: "Deploy portfolio from Career@${{ github.sha }}"
 
