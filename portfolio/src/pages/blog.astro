@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Post from '../blog/credit-card-fraud.md';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+    <div class="blog-container">
+        <h1>Blog</h1>
+        <details>
+          <summary><h2>Learning Logistic Regression the Wrong Way</h2></summary>
+          <Post />
+        </details>
+    </div>
+</Layout>
+<style>
+    .blog-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+</style>
