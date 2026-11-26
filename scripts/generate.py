@@ -32,8 +32,16 @@ def render_readme(cfg: dict) -> str:
         "",
         "## What I'm Up To",
         "",
-        f"{cfg['spotlight']['name']}",
-        f"I'm currently focused on the {cfg['spotlight']['name']}. This is a {cfg['spotlight']['description']}."
+        f"I'm currently focused on the **{cfg['spotlight']['name']}**. This is a {cfg['spotlight']['description']}.",
+        "",
+        "---",
+        "",
+        "## What I've Done",
+        "",
+        for project in cfg['projects'][:3]:  # only show the first/top 3 projects
+        lines.append(f"- {project['name']}")
+        lines.append(f"  - {project['description']}")
+        lines.append("")
     ]
     return "\n".join(lines)
 
