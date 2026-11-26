@@ -30,38 +30,11 @@ def render_readme(cfg: dict) -> str:
         "",
         "---",
         "",
-        "## Experience",
+        "## What I'm Up To",
         "",
+        f"{cfg['spotlight']['name']}",
+        f"I'm currently focused on the {cfg['spotlight']['name']}. This is a {cfg['spotlight']['description']}."
     ]
-
-    for job in cfg["experience"]:
-        dates = f"{job['start']} – {job['end']}"
-        lines.append(f"### {job['role']} @ {job['org']}")
-        lines.append(f"*{job['location']} · {dates}*")
-        lines.append("")
-        for bullet in job["bullets"]:
-            lines.append(f"- {bullet}")
-        lines.append("")
-
-    lines.append("## Education")
-    lines.append("")
-    for edu in cfg["education"]:
-        dates = ""
-        if edu.get("start") or edu.get("end"):
-            dates = f" ({edu.get('start', '')} – {edu.get('end', '')})".strip()
-        lines.append(f"- **{edu['school']}** — {edu['degree']}{dates}")
-    lines.append("")
-
-    skills = cfg["skills"]
-    lines.append("## Skills")
-    lines.append("")
-    lines.append(f"- **Programming:** {', '.join(skills['programming'])}")
-    lines.append(
-        f"- **Infrastructure:** {', '.join(skills['infrastructure'])}")
-    lines.append(
-        f"- **Machine Learning:** {', '.join(skills['machine_learning'])}")
-    lines.append("")
-
     return "\n".join(lines)
 
 
