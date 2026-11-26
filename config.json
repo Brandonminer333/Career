@@ -5,14 +5,55 @@
     "title": "Data Scientist",
     "tagline": "Building data systems and ML products end-to-end.",
     "location": "San Francisco Bay Area",
+    "email": "brandonm333@gmail.com",
+    "company": "Safe Passages",
     "links": {
       "github": "https://github.com/Brandonminer333",
       "portfolio": "https://brandonminer.com",
       "linkedin": "www.linkedin.com/in/brandon-miner-3x3",
       "instagram": "",
-      "facebook": ""
-    }
+      "facebook": "",
+      "wishlist": {
+        "steamWishlist": "https://store.steampowered.com/wishlist/profiles/76561198104213813/?st=16099023123692778091",
+        "amazonWishlist": "https://www.amazon.com/hz/wishlist/ls/TE5J576B40QU?"
+    }}
   },
+  "projects": [
+    {
+      "name": "Case Management System",
+      "description": "A data pipeline and ML product for Safe Passages.",
+      "bullets": [
+        "Refactored a legacy Zoho Creator case management system into a normalized client-hub architecture, converting subform-based records into standalone forms keyed on a permanent Client ID and migrating historical data with Deluge batch scripts.",
+        "Built HIPAA-aligned safeguards into the app: field-level ePHI/PII tagging and encryption, granular team-based permissions, and a custom audit log across create, update, delete, search, and enrollment events that flags deletes and cross-program enrollment.",
+        "Automated the end-to-end data workflow as a data pipeline, replacing manual Excel lookups and copy-paste entry required of every member of an 8+ person team. Search pages with exact and fuzzy (2-of-3) matching on name and date of birth prevent duplicate client records and prefill downstream forms.",
+        "Digitized a paper-based grant program (HHIP) into Zoho forms with conditional show/hide workflows, award-letter tracking, and file-upload document checklists. This created a structured, auditable record where none existed",
+        "Authored a documentation library (architecture, design rationale, and technical build guides) so future team members can maintain the system after the AmeriCorps term ends."
+      ],
+      "currentStatus": "Active"
+    },
+    {
+      "name": "Expanded Learning Program Attendance Tracker Dashboard",
+      "description": "A data pipeline and ML product for Safe Passages.",
+      "bullets": [
+        "Automated attendance data collection by building Playwright (Python) scripts to replace manual downloads from the America Learns platform, eliminating roughly [X hours/week] of manual work and reducing entry and export errors.",
+        "Designed a cross-platform data pipeline that syncs attendance data from multiple sources into Zoho Analytics as a single source of truth, applying relational database normalization (e.g., linking school-date keys to school and date tables) to keep records consistent across [N schools/programs].",
+        "Built interactive attendance dashboards and reports in Zoho Analytics, surfacing trends and patterns by school and date, and added program-level summary statistics so leadership can monitor [N sites/participants] without requesting ad hoc pulls."
+      ],
+      "currentStatus": "Active"
+    },
+    {
+      "name": "Body-worn Camera Compliance Tracking System",
+      "description": "A self-hosted full-stack system to ingest, store, retireve, and process large batches of video data.",
+      "bullets": [
+        "Ingested video data from a variety of sources into a single source of truth.",
+        "Stored the video data in a scalable and efficient manner.",
+        "Retrieved the video data from the single source of truth.",
+        "Processed the video data into a usable format.",
+        "Built a dashboard to visualize the video data and identify trends and patterns."
+      ],
+      "currentStatus": "Inactive"
+    }
+  ],
   "experience": [
     {
       "org": "Safe Passages",

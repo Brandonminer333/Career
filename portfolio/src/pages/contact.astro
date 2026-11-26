@@ -6,6 +6,21 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<h1>Contact Me</h1>
-    <p>WIP...</p>
+    <div>
+        <h1>Contact Me</h1>
+        <p><a href="mailto:{cfg.profile.email}">Email</a></p>
+        <p><a href="{cfg.profile.links.linkedin}">LinkedIn</a></p>
+        <p><a href="{cfg.profile.links.github}">GitHub</a></p>
+    </div>
 </Layout>
+<style>
+    div {
+        display: center;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;        
+    }
+    a {
+        color:rgb(242, 242, 242);
+    }
+</style>
