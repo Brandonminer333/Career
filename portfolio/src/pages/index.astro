@@ -10,22 +10,43 @@ import cfg from '../../../config.json';
 <Layout>
 
 	<div id="content">
-		<section class="hero">
-			<img class="hero-img" src="/forest.jpg" alt="Forest" />
-			<div class="hero-text">
+		<section id="hero">
+			<img id="hero-img" src="/forest.jpg" alt="Forest" />
+			<div id="hero-text">
 			  <h1>Welcome to my portfolio!</h1>
 			</div>
 		  </section>
-		<section class="main-content">
-			<div>
+		<section id="main-content">
+			<div id="intro">
 				<h1>My name is {cfg.profile.name} and I'm a {cfg.profile.title} at {cfg.profile.company}. I'm currently based in {cfg.profile.location}</h1>
 			</div>
-			<div class="spotlight">
+			<div id="spotlight">
 				<h2>What I'm Up To</h2>
 				<p>
 					I'm currently focused on the {cfg.spotlight.name}.
 					This is a {cfg.spotlight.description}.
 				</p>
+			</div>
+			<div id="projects">
+				<h2>What I've Done</h2>
+				<ul>
+					<li>
+						<h3>{cfg.projects[0].name}</h3>
+						<p>{cfg.projects[0].description}</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h3>{cfg.projects[1].name}</h3>
+						<p>{cfg.projects[1].description}</p>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h3>{cfg.projects[2].name}</h3>
+						<p>{cfg.projects[2].description}</p>
+					</li>
+				</ul>
 			</div>
 		</section>
 	</div>
