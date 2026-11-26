@@ -38,7 +38,8 @@ def render_readme(cfg: dict) -> str:
         "",
         "## What I've Done",
         "",
-        for project in cfg['projects'][:3]:  # only show the first/top 3 projects
+        # only show the first/top 2 projects, will bump to 3 when I get a third project
+        for project in cfg['projects'][:2]:
         lines.append(f"- {project['name']}")
         lines.append(f"  - {project['description']}")
         lines.append("")
