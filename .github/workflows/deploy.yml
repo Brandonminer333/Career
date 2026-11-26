@@ -41,6 +41,7 @@ jobs:
       - name: Deploy portfolio to Brandonminer333.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
+          cname: brandonminer.com
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           external_repository: Brandonminer333/Brandonminer333.github.io
           publish_branch: main
