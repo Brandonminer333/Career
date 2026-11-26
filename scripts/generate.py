@@ -26,7 +26,7 @@ def render_readme(cfg: dict) -> str:
         "",
         f"- [GitHub]({p['links']['github']})",
         f"- [Portfolio]({p['links']['portfolio']})",
-        f"- [LinkedIn]({p['links']['linkedin']})"
+        f"- [LinkedIn]({p['links']['linkedin']})",
         "",
         "---",
         "",
@@ -38,12 +38,14 @@ def render_readme(cfg: dict) -> str:
         "",
         "## What I've Done",
         "",
-        # only show the first/top 2 projects, will bump to 3 when I get a third project
-        for project in cfg['projects'][:2]:
-        lines.append(f"- {project['name']}")
-        lines.append(f"  - {project['description']}")
-        lines.append("")
     ]
+
+    # Top projects only; bump the slice when a third lands in config
+    for project in cfg["projects"][:2]:
+        lines.append(f"- **{project['name']}**")
+        lines.append(f"  - This is a {project['description']}.")
+        lines.append("")
+
     return "\n".join(lines)
 
 
