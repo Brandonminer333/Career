@@ -1,16 +1,17 @@
 ---
 import "@fontsource/instrument-serif/400.css";
+import Head from '../components/head.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
+	<Head title="Brandon's Wishlist" description="Brandon's wishlist links" />
 	<body>
 		<h1>Brandon's Wishlist</h1>
 		<ol>

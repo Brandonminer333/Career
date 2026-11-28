@@ -1,23 +1,29 @@
 <div id="navbar">
-    <a class="active" href="/">Home</a>
-    <a href="/contact/">Contact</a>
-    <a href="/blog/">Blogs</a>
-    <a href="/about/">About</a>
-    <a href="/credits/">Credits</a>
+	<a class="active" href="/">Home</a>
+	<div class="nav-links">
+		<a href="/contact/">Contact</a>
+		<a href="/blog/">Blogs</a>
+		<a href="/about/">About</a>
+		<a href="/credits/">Credits</a>
+	</div>
 </div>
 <style>
 	#navbar {
 		position: sticky;
 		top: 0;
 		z-index: 100; /* above hero (0) and main-content (1) */
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		background-color: rgb(0, 45, 10);
-		overflow: hidden;
 	}
 	#navbar a {
-		float: right;
 		color: #f2f2f2;
 		text-align: center;
 		padding: 14px 16px;
 		text-decoration: none;
+	}
+	.nav-links {
+		display: flex;
 	}
 </style>

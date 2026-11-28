@@ -1,0 +1,25 @@
+---
+import cfg from '../../../config.json';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const siteTitle = `${cfg.profile.name} — ${cfg.profile.title}, ${cfg.profile.location}`;
+const pageTitle = title ? `${title} — ${cfg.profile.name}` : siteTitle;
+const pageDescription = description ?? cfg.profile.tagline;
+---
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/png" href="/mu-symbol.png" />
+	<meta name="generator" content={Astro.generator} />
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<meta name="author" content={cfg.profile.name} />
+	<meta name="robots" content="index, follow" />
+</head>
