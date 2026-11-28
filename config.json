@@ -40,7 +40,7 @@
       ]
     },
     {
-      "name": "Body-worn Camera Compliance Tracking System",
+      "name": "Body-Worn Camera Traffic Stop Auditor",
       "description": "self-hosted full-stack platform that ingests, stores, retrieves, and processes large batches of body-worn camera video for compliance review",
       "bullets": [
         "Ingested video data from a variety of sources into a single source of truth.",

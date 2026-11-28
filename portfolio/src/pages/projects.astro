@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CMS from '../projects/cms.md';
+import ExpL from '../projects/expl.md';
+import BWC from '../projects/bwc.md';
+---
+
+<Layout title="Projects">
+	<div class="projects-container">
+		<h1>Projects</h1>
+		<details open>
+			<summary>Case Management System</summary>
+			<CMS />
+		</details>
+		<details>
+			<summary>Expanded Learning Attendance Tracker</summary>
+			<ExpL />
+		</details>
+		<details>
+			<summary>Body-Worn Camera Traffic Stop Auditor</summary>
+			<BWC />
+		</details>
+	</div>
+</Layout>
+
+<style>
+	.projects-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem 1.25rem 4rem;
+	}
+
+	.projects-container details {
+		margin: 1.25rem 0;
+	}
+
+	.projects-container summary {
+		cursor: pointer;
+		font-size: 1.35rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.projects-container :global(a) {
+		color: rgb(242, 242, 242);
+	}
+</style>

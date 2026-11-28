@@ -1,10 +1,6 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import cfg from '../../../config.json';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
@@ -30,17 +26,16 @@ import cfg from '../../../config.json';
 			<div id="projects">
 				<h2>What I've Done</h2>
 				<ul>
-					<li>
-						<h3>{cfg.projects[0].name}</h3>
-						<p>{cfg.projects[0].description}</p>
-					</li>
+					{cfg.projects.map((project) => (
+						<li>
+							<h3>{project.name}</h3>
+							<p>This is a {project.description}.</p>
+						</li>
+					))}
 				</ul>
-				<ul>
-					<li>
-						<h3>{cfg.projects[1].name}</h3>
-						<p>{cfg.projects[1].description}</p>
-					</li>
-				</ul>
+				<p>
+					<a href="/projects/">Full project writeups →</a>
+				</p>
 			</div>
 		</section>
 	</div>
@@ -78,5 +73,9 @@ import cfg from '../../../config.json';
 		background-color: rgb(0, 45, 10); /* match your body bg so it covers the image */
 		min-height: 100vh;
 		padding: 4rem 2rem;
+	}
+
+	#projects a {
+		color: rgb(242, 242, 242);
 	}
 </style>
